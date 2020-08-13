@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/encryptStringText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Encrypted string"
+        />
+    <EditText
+        android:id="@+id/encryptStringEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptStringText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <TextView
+        android:id="@+id/encryptPasswordText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptStringEdit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Password"
+        />
+    <EditText
+        android:id="@+id/encryptPasswordEdit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptPasswordText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+    <Button
+        android:id="@+id/encryptAES128Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptPasswordEdit"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Encrypt AES128"
+        />
+    <Button
+        android:id="@+id/encryptAES256Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptPasswordEdit"
+        app:layout_constraintLeft_toRightOf="@+id/encryptAES128Button"
+        android:text="Encrypt AES256"
+        />
+
+    <TextView
+        android:id="@+id/encryptedStringText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptAES128Button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Encrypted text"
+        />
+
+    <Button
+        android:id="@+id/decryptAES128Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptedStringText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Decrypt AES128"
+        />
+    <Button
+        android:id="@+id/decryptAES256Button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/encryptedStringText"
+        app:layout_constraintLeft_toRightOf="@+id/encryptAES128Button"
+        android:text="Decrypt AES256"
+        />
+
+    <TextView
+        android:id="@+id/decryptedStringText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/decryptAES256Button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Decrypted text"
+        />
+
+    <TextView
+        android:id="@+id/errorText"
+        android:textStyle="bold"
+        android:textColor="@color/error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@+id/decryptedStringText"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:text="Error"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText encryptPasswordEdit = findViewById(R.id.encryptPasswordEdit);
 
         final TextView encryptedStringText = findViewById(R.id.encryptedStringText);
+        final TextView decryptedStringText = findViewById(R.id.decryptedStringText);
 
         final TextView errorText = findViewById(R.id.errorText);
 
@@ -43,5 +44,55 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
+        final Button decryptAES128Button = findViewById(R.id.decryptAES128Button);
+        decryptAES128Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    decryptedStringText.setText(
+                            StringCryptService.decryptStringAES128(encryptedStringText.getText().toString(), encryptPasswordEdit.getText().toString())
+                    );
+                    errorText.setText(null);
+                } catch (AESCryptException | IOException e) {
+                    e.printStackTrace();
+                    errorText.setText(e.getMessage());
+                }
+            }
+        });
+
+        final Button encryptAES256Button = findViewById(R.id.encryptAES256Button);
+        encryptAES256Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    encryptedStringText.setText(
+                            StringCryptService.encryptStringAES256(encryptStringEdit.getText().toString(), encryptPasswordEdit.getText().toString())
+                    );
+                    errorText.setText(null);
+                } catch (AESCryptException | IOException e) {
+                    e.printStackTrace();
+                    errorText.setText(e.getMessage());
+                }
+            }
+        });
+
+        final Button decryptAES256Button = findViewById(R.id.decryptAES256Button);
+        decryptAES256Button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                try {
+                    decryptedStringText.setText(
+                            StringCryptService.decryptStringAES256(encryptedStringText.getText().toString(), encryptPasswordEdit.getText().toString())
+                    );
+                    errorText.setText(null);
+                } catch (AESCryptException | IOException e) {
+                    e.printStackTrace();
+                    errorText.setText(e.getMessage());
+                }
+            }
+        });
+        
+
     }
 }
